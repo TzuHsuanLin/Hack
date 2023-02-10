@@ -19,6 +19,23 @@ def order():
     print(z)
     return requests.post(url=URL_SAVE,json=z).text
 
+@app.route('/record',methods=['GET'])
+def query():
+    
+    location = request.args['location']
+    date = request.args['date']
+    response = requests.get(url=f'{STORAGE_URL}/records?location={location}&date={date}')
+    return response.content
+
+
+@app.route('/report',methods=['GET'])
+def report():
+    location = request.args['location']
+    date = request.args['date']
+    # print("fff")
+    response = requests.get(url=f'{STORAGE_URL}/report?location={location}&date={date}')
+    return response.content
+
 
 @app.route('/')
 def hello():
