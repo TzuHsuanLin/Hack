@@ -12,12 +12,10 @@ URL_MATERIAL = f'{INVENTORY_URL}/material'
 @app.route('/order',methods=['POST'])
 def order():
     data = request.json
-    print(data.get('data'))
     response = requests.post(url=URL_MATERIAL,json=data.get('data'))
-    print(data.get('location'))
-    print(data.get('timestamp'))
-    print(data)
-    return response.text
+    z = data.copy()
+    z.update(response.json())
+    return z
 
 
 @app.route('/')
