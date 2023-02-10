@@ -16,15 +16,10 @@ def order():
     print('RRRRR')
     data = request.json
     try:
-        print(data)
         material = 0
         total = 0
         for item,count in data.items():
-            print(item)
-            print(count)
-            print(item,formula.get(item))
             material += formula.get(item)*count
-            print(material)
             total += count
             
         return jsonify(
