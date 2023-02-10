@@ -3,6 +3,7 @@ import json
 from urllib import response
 from flask import Flask, request
 from flask_cors import CORS
+import requests
 
 from config import INVENTORY_URL
 app = Flask(__name__)
@@ -12,12 +13,11 @@ URL_MATERIAL = f'{INVENTORY_URL}/material'
 def order():
     data = request.json
     print(data.get('data'))
-    response = request.post(url=URL_MATERIAL,json=data.get('data'))
+    response = requests.post(url=URL_MATERIAL,json=data.get('data'))
     print(data.get('location'))
     print(data.get('timestamp'))
     print(data)
-    return data
-
+    return response.text
 
 
 @app.route('/')
