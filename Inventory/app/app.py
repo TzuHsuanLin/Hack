@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 formula = {'a':3,'b':2,'c':4,'d':10}
 # URL_MATERIAL = f'{INVENTORY_URL}/material'
-@app.route('/api/material',methods=['POST'])
+@app.route('/api/material/',methods=['POST'])
 def order():
     data = request.json
     try:

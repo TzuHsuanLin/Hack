@@ -59,7 +59,7 @@ def index():
         db.create_all()
     return 'ok'
 
-@app.route('/api/records',methods=['POST'])
+@app.route('/api/records/',methods=['POST'])
 def save():
     response = request.json   
     date = datetime.strptime(response.get('timestamp'), "%Y-%m-%dT%H:%M:%S%z")
@@ -81,7 +81,7 @@ def save():
     except Exception as error:
         abort(500,error)
 from sqlalchemy import func
-@app.route('/api/records',methods=['GET'])
+@app.route('/api/records/',methods=['GET'])
 def records():
     location = request.args['location']
     date = request.args['date']
@@ -93,7 +93,7 @@ def records():
     return detail_data
 
 
-@app.route('/api/report',methods=['GET'])
+@app.route('/api/report/',methods=['GET'])
 def report():
     location = request.args['location']
     date = request.args['date']

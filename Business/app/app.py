@@ -8,9 +8,9 @@ import requests
 from config import INVENTORY_URL,STORAGE_URL
 app = Flask(__name__)
 CORS(app)
-URL_MATERIAL = f'{INVENTORY_URL}/material'
-URL_SAVE = f'{STORAGE_URL}/records'
-@app.route('/order',methods=['POST'])
+URL_MATERIAL = f'{INVENTORY_URL}/material/'
+URL_SAVE = f'{STORAGE_URL}/records/'
+@app.route('/api/order',methods=['POST'])
 def order():
     data = request.json
     response = requests.post(url=URL_MATERIAL,json=data.get('data'))
@@ -18,7 +18,7 @@ def order():
     z.update(response.json())
     return requests.post(url=URL_SAVE,json=z).text
 
-@app.route('/api/record',methods=['GET'])
+@app.route('/api/record/',methods=['GET'])
 def query():
     location = request.args['location']
     date = request.args['date']
@@ -26,7 +26,7 @@ def query():
     return response.content
 
 
-@app.route('/api/report',methods=['GET'])
+@app.route('/api/report/',methods=['GET'])
 def report():
     location = request.args['location']
     date = request.args['date']
