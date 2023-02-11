@@ -1,5 +1,5 @@
-INVENTORY_URL=10.0.0.3
-STORAGE_URL=10.0.0.4
+INVENTORY_URL=10.0.0.4
+STORAGE_URL=10.0.0.5
 
 tools:
 	apt update && apt install docker.io docker-compose make -y
