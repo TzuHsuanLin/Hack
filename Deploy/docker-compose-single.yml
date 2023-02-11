@@ -11,7 +11,7 @@ services:
     # volumes:
     #   - ../Business/app:/app/app
     entrypoint: [""]
-    command: ["python3","app/run.py"]
+    command: ["python3","app/app.py"]
     environment:
       - WEB_PORT=8100
       - INVENTORY_URL=http://${INVENTORY_URL}:8200/api
@@ -30,7 +30,7 @@ services:
     # volumes:
     #   - ../Inventory/app:/app/app
     entrypoint: [""]
-    command: ["python3","app/run.py"]
+    command: ["python3","app/app.py"]
     environment:
       - WEB_PORT=8200
     ports:
@@ -47,7 +47,7 @@ services:
     # volumes:
     #   - ../Storage/app:/app/app
     entrypoint: [""]
-    command: ["python3","app/run.py"]
+    command: ["python3","app/app.py"]
     environment:
       - WEB_PORT=8300
     ports:
